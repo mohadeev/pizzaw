@@ -1,6 +1,6 @@
 {
   "bread": {
-    "objeData": {},
+    "objeData": { "name": "Bread" },
     "data": [
       { "name": "Classic Crust", "price": "0" },
       { "name": "Thin 'N Crispy", "price": "0" },
@@ -11,7 +11,7 @@
     ]
   },
   "cheeses": {
-    "objeData": {},
+    "objeData": { "name": "Cheeses" },
     "data": [
       { "name": "Mozzarella", "price": 0 },
       { "name": "Parmesan", "price": 0 },
@@ -30,7 +30,7 @@
     ]
   },
   "meat": {
-    "objeData": {},
+    "objeData": { "name": "Meat" },
     "data": [
       { "name": "Pepperoni", "price": 0 },
       { "name": "Chicken", "price": 0 },
@@ -40,7 +40,7 @@
     ]
   },
   "vegetable": {
-    "objeData": {},
+    "objeData": { "name": "Meat" },
     "data": [
       { "name": "Mushrooms", "price": 0 },
       { "name": "Onions", "price": 0 },
@@ -51,7 +51,7 @@
     ]
   },
   "herbs": {
-    "objeData": {},
+    "objeData": { "name": "Meat" },
     "data": [
       { "name": "Basil", "price": 0 },
       { "name": "Oregano", "price": 0 },

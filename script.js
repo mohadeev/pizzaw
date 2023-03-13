@@ -1,3 +1,4 @@
+import handelAddComponent from "./utils/handelAddComponent.js";
 let breadArray = [];
 let cheeseArray = [];
 let dataJson = {};
@@ -42,11 +43,20 @@ const handelCreateBread = () => {
   for (const key in dataJson) {
     const bigElemment = document.createElement("div");
     bigElemment.className = "big_elemment";
-    dataJson[key].data.map(({ name }, index) => {
+    const componentDataElemment = document.createElement("div");
+    componentDataElemment.className = "component_data_elemment";
+    const componentDataElemmentName = document.createElement("p");
+    componentDataElemmentName.textContent = dataJson[key].objeData.name;
+    componentDataElemmentName.className = "p_text";
+    componentDataElemment.appendChild(componentDataElemmentName);
+    bigElemment.appendChild(componentDataElemment);
+    const mainObjectKey = key;
+    dataJson[key].data.map((ojeData, index) => {
       const mainElemment = document.createElement("div");
+      mainElemment.onclick = () => handelAddComponent(ojeData, mainObjectKey);
       mainElemment.className = "container_bread_card";
       const breadName = document.createElement("p");
-      breadName.textContent = name;
+      breadName.textContent = ojeData.name;
       breadName.className = "p_text";
       mainElemment.appendChild(breadName);
       bigElemment.appendChild(mainElemment);
@@ -54,6 +64,7 @@ const handelCreateBread = () => {
         isElementCreated = true;
       }
     });
+
     breadContainer.appendChild(bigElemment);
   }
 };

@@ -189,7 +189,7 @@ body {
   width: auto;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: flex-start;
   text-align: start;
   row-gap: 10px;
@@ -222,7 +222,8 @@ body {
 }
 
 .card_container {
-  width: 200px;
+  width: 300px;
   border: 1px dashed #dbdbdb;
   min-height: 200px;
+  border-radius: 10px;
 }
