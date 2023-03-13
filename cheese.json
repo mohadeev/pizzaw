@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Mozzarella",
+    "description": "A mild, white cheese that melts easily and is commonly used on pizza."
+  },
+  {
+    "name": "Parmesan",
+    "description": "A hard, sharp cheese with a distinctive flavor. Often used in combination with other cheeses on pizza."
+  },
+  {
+    "name": "Cheddar",
+    "description": "A firm, yellow cheese with a sharp taste. Not as commonly used on pizza as some other cheeses."
+  },
+  {
+    "name": "Gouda",
+    "description": "A semi-hard cheese with a mild, nutty flavor. Can be used in place of mozzarella on pizza for a different taste."
+  },
+  {
+    "name": "Feta",
+    "description": "A crumbly, salty cheese that is commonly used on Greek-style pizza."
+  }
+]
