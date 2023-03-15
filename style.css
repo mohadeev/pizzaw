@@ -1,8 +1,8 @@
-/* * {
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-} */
+}
 body {
   background-color: rgb(255, 255, 255);
   width: 100%;
@@ -226,4 +226,24 @@ body {
   border: 1px dashed #dbdbdb;
   min-height: 200px;
   border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 20px;
+}
+.main_container_salt {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.p_bolder {
+  font-weight: 700;
+  /* background-color: red; */
+}
+.p_bolder::after {
+  content: ": ";
 }

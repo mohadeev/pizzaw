@@ -40,7 +40,7 @@
     ]
   },
   "vegetable": {
-    "objeData": { "name": "Meat" },
+    "objeData": { "name": "Vegetables" },
     "data": [
       { "name": "Mushrooms", "price": 0 },
       { "name": "Onions", "price": 0 },
@@ -51,7 +51,7 @@
     ]
   },
   "herbs": {
-    "objeData": { "name": "Meat" },
+    "objeData": { "name": "Herbs" },
     "data": [
       { "name": "Basil", "price": 0 },
       { "name": "Oregano", "price": 0 },
