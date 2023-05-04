@@ -8,7 +8,7 @@ let dataJson = {};
 let isElementCreated = false;
 let ischeesCreated = false;
 
-fetch("http://localhost:5001/api/pizza-ingredients")
+fetch("https://be-pizzaw.vercel.app/api/pizza-ingredients")
   .then((response) => response.json())
   .then((data) => {
     breadArray = data.responseData.bread.data;
