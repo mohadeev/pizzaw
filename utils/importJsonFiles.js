@@ -1,6 +1,8 @@
-
 export const mainDataJson = async () => {
-  const response = await fetch("./pizzaBread.json");
+  const response = await fetch(
+    "https://be-pizzaw.vercel.app/api/pizza-ingredients"
+  );
   const data = await response.json();
-  return data;
+  console.log(data.responseData);
+  return data.responseData;
 };

@@ -1,16 +1,19 @@
+import addPriceFunction from "./utils/addPriceFunction.js";
 import handelAddComponent from "./utils/handelAddComponent.js";
+import handelCreateCard from "./utils/handelCreateCard.js";
+// import handelCreateCard from "./utils/handelCreateCard.js";
 let breadArray = [];
 let cheeseArray = [];
 let dataJson = {};
 let isElementCreated = false;
 let ischeesCreated = false;
 
-fetch("./pizzaBread.json")
+fetch("http://localhost:5001/api/pizza-ingredients")
   .then((response) => response.json())
   .then((data) => {
-    breadArray = data.bread.data;
-    cheeseArray = data.cheese;
-    dataJson = data;
+    breadArray = data.responseData.bread.data;
+    cheeseArray = data.responseData.cheese;
+    dataJson = data.responseData;
     console.log(data);
   })
   .catch((error) => console.error(error));
@@ -22,7 +25,6 @@ const userDataInfoContainer = document.getElementById(
   "user_data_info_container"
 );
 const breadContainer = document.getElementById("bread_container");
-
 const pizzaContainer = (document.getElementById(
   "pizza_container"
 ).style.display = "hidden");
@@ -30,11 +32,12 @@ let mainUserName = "";
 
 // --------------------------------------adding funcs to the elements------------------------------------------//
 inputUserName.oninput = (e) => {
-  mainUserName = "Hello " + e.target.value;
+  mainUserName = e.target.value;
 };
 
 handelClickBtn.onclick = () => {
-  userName.innerText = mainUserName + " let's make your Pizza";
+  userName.innerText = "Hello " + mainUserName + " let's make your Pizza";
+  document.getElementById("the_user_name").innerHTML = mainUserName;
 };
 
 //--------------------------------------create bread element -------------------------------------------------//
@@ -53,7 +56,8 @@ const handelCreateBread = () => {
     const mainObjectKey = key;
     dataJson[key].data.map((ojeData, index) => {
       const mainElemment = document.createElement("div");
-      mainElemment.onclick = () => handelAddComponent(ojeData, mainObjectKey);
+      mainElemment.onclick = () =>
+        handelAddComponent(dataJson, ojeData, mainObjectKey);
       mainElemment.className = "container_bread_card";
       const breadName = document.createElement("p");
       breadName.textContent = ojeData.name;
@@ -68,6 +72,9 @@ const handelCreateBread = () => {
     breadContainer.appendChild(bigElemment);
   }
 };
+
+handelCreateCard();
+addPriceFunction();
 
 let intervalId = setInterval(() => {
   if (!isElementCreated) {

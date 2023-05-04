@@ -1,11 +1,12 @@
+import addPriceFunction from "./addPriceFunction.js";
 import { mainDataJson } from "./importJsonFiles.js";
 (async () => {
   const data = await mainDataJson();
   console.log("mainDataJson", data);
 })();
 const cardContainer = document.getElementById("card_container");
-const handelAddComponent = async (ojeData, mainObjectKey) => {
-  const data = await mainDataJson();
+const handelAddComponent = async (datasd, ojeData, mainObjectKey) => {
+  const data = datasd;
   const myString = localStorage.getItem("card");
   const mainStorage = JSON.parse(myString);
   const objeDataFindData = data[mainObjectKey].objeData;
@@ -18,12 +19,17 @@ const handelAddComponent = async (ojeData, mainObjectKey) => {
     const isSameChildAval = document.getElementById(
       ojeData.name + "_salt_second"
     );
+    const thearray = mainStorage[mainObjectKey].data;
+    const thename = thearray.findIndex(
+      (indexanme) => indexanme.name === ojeData.name
+    );
+    console.log(".--------------------------------------thename", thename);
     if (!isSameChildAval) {
       if (mainIdIsAvailable) {
-        alert("is there");
+        // alert("is there");
         mainIdIsAvailable.appendChild(secondValue);
       } else {
-        alert("not there");
+        // alert("not there");
         const mainDiv = document.createElement("div");
         mainDiv.id = mainObjectKey + "_salt";
         mainDiv.className = "main_container_salt";
@@ -34,10 +40,13 @@ const handelAddComponent = async (ojeData, mainObjectKey) => {
         mainDiv.appendChild(secondValue);
         cardContainer.appendChild(mainDiv);
       }
-      mainStorage[mainObjectKey].data.push(ojeData);
-      localStorage.setItem("card", JSON.stringify(mainStorage));
+      if (thename < 0) {
+        mainStorage[mainObjectKey].data.push(ojeData);
+        localStorage.setItem("card", JSON.stringify(mainStorage));
+        addPriceFunction();
+      }
     } else {
-      alert("your pizza has the component you clicked");
+      // alert("your pizza has the component you clicked");
     }
 
     //----------------------------------------------
@@ -49,7 +58,9 @@ const handelAddComponent = async (ojeData, mainObjectKey) => {
       mainStorage[mainObjectKey].objeData = data[mainObjectKey].objeData;
       mainStorage[mainObjectKey].data = [];
       handelPush();
+      // alert("first time");
     } else {
+      // alert("not the first time");
       handelPush();
     }
   };
